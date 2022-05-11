@@ -1,28 +1,24 @@
 package com.nelioalves.cursomc.cursomc.dto;
 
-import com.nelioalves.cursomc.cursomc.domain.Categoria;
+import com.nelioalves.cursomc.cursomc.domain.Produto;
 
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.io.Serializable;
 
-public class CategoriaDTO implements Serializable {
+public class ProdutoDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private Integer id;
-
-    @NotEmpty(message="Preenchimento obrigatório")
-    @Size(min=5, max=80, message="O tamanho deve ser entre 5 e 80 caracteres")
     private String nome;
+    private Double preco;
 
-    public CategoriaDTO() {
+    public ProdutoDTO() {
 
     }
 
-    public CategoriaDTO(Categoria obj) {
+    public ProdutoDTO(Produto obj) {
         id = obj.getId();
         nome = obj.getNome();
+        preco = obj.getPreco();
     }
 
     public Integer getId() {
@@ -39,5 +35,13 @@ public class CategoriaDTO implements Serializable {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
     }
 }
